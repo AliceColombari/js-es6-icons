@@ -126,3 +126,21 @@ const icons = [
 		color: 'blue'
 	}
 ];
+
+// contenitore icone
+const contenitore = document.getElementById('icons-container');
+let contenutoIcone = '';
+
+// MILESTONE 2 
+// RENDO VISIBILI TUTTE LE ICONE DELL'ARRAY + IL LORO COLORE
+// ciclare tutti gli elementi di icone
+// richiamo la funzione che definiamo noi
+// richiamare il valore di ogni singolo oggetto contenuto
+icons.forEach(oggetto => {
+    contenutoIcone += `<div class="icon">
+                            <i style="color:${oggetto.color};" class="${oggetto.family} ${oggetto.prefix}${oggetto.name}"></i>
+                            <div class="icon-text">${oggetto.name}</div>
+                        </div>`;
+});
+
+contenitore.innerHTML = contenutoIcone;
