@@ -3,3 +3,71 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: sans-serif;
+}
+
+/* CONTENITORE GENERALE */
+.container {
+    max-width: 1000px;
+    margin: 0px auto;
+}
+
+.general-container {
+    background-color: #d3d3d3;
+    height: 100vh;
+}
+
+/* TITOLO */
+.header-top {
+    height: 80px;
+    line-height: 80px;
+    background-color: #fff;
+}
+
+.header-top .logo {
+    font-size: 50px;
+    color: rgb(41, 177, 221);
+}
+
+/* RICERCA */
+.header-bottom {
+    background-color: rgb(41, 177, 221);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.header-bottom .search {
+    color: #fff;
+    font-size: 20px;
+}
+
+select {
+    margin: 0px 10px;
+    width: 100px;
+}
+
+/* ICONE */
+#icons-container {
+    /* border: solid 1px black; */
+    padding: 50px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.icon {
+    width: calc(100% / 5 - 36px);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 3);
+}
+
+.icon i {
+    font-size: 30px;
+}
