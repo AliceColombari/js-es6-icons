@@ -129,18 +129,73 @@ const icons = [
 
 // contenitore icone
 const contenitore = document.getElementById('icons-container');
-let contenutoIcone = '';
+
 
 // MILESTONE 2 
+
+// let contenutoIcone = '';
+
 // RENDO VISIBILI TUTTE LE ICONE DELL'ARRAY + IL LORO COLORE
 // ciclare tutti gli elementi di icone
 // richiamo la funzione che definiamo noi
 // richiamare il valore di ogni singolo oggetto contenuto
-icons.forEach(oggetto => {
-    contenutoIcone += `<div class="icon">
-                            <i style="color:${oggetto.color};" class="${oggetto.family} ${oggetto.prefix}${oggetto.name}"></i>
-                            <div class="icon-text">${oggetto.name}</div>
-                        </div>`;
+// icons.forEach(oggetto => {
+//     contenutoIcone += `<div class="icon">
+//                             <i style="color:${oggetto.color};" class="${oggetto.family} ${oggetto.prefix}${oggetto.name}"></i>
+//                             <div class="icon-text">${oggetto.name}</div>
+//                         </div>`;
+// });
+
+// contenitore.innerHTML = contenutoIcone;
+// FINE MILESTONE 2 
+
+
+// MILESTONE 3
+// invoco funzione per farla funzionare
+disegnaIcone(contenitore, icons);
+
+const selezionato = document.getElementById('type-filter');
+
+// elemento selezionato al click cambia visualizzazione icone
+selezionato.addEventListener('change', function() {
+    
+    let selezione = this.value;
+
+    if (selezione == "") {
+        disegnaIcone(contenitore, icons);
+    } else {
+        // dentro questo array voglio ci finiscano icons solo di un certo valore
+        // elenco di tutti gli elementi filtrati
+        const elementiFiltrati = icons.filter(icon => {
+
+        // se è vero, allora entro all'interno dell'elemento che ho selezionato altrimenti ritorno false, non fa nulla
+        if(icon.type == selezione) {
+            return true;
+        }
+
+        return false;
+    });
+
+    // il programma ci mostra icona selezionate
+    disegnaIcone(contenitore, elementiFiltrati);
+
+    }
+
 });
 
-contenitore.innerHTML = contenutoIcone;
+
+// funzione per disegnare le icone
+function disegnaIcone(contenitore, icons) {
+
+    let contenutoIcone = '';
+
+    icons.forEach(oggetto => {
+        contenutoIcone += `<div class="icon">
+                        <i style="color:${oggetto.color};" class="${oggetto.family} ${oggetto.prefix}${oggetto.name}"></i>
+                        <div class="icon-text">${oggetto.name}</div>
+                    </div>`;
+    });
+
+    contenitore.innerHTML = contenutoIcone;
+
+}
